@@ -8,7 +8,7 @@ public class PanelBuskeyLab extends JPanel
    
    public void paintComponent(Graphics g)
    {
-      g.setColor(Color.BLUE.brighter());
+      g.setColor(Color.CYAN.brighter());
       g.fillRect(0, 0, getWidth(), getHeight());
       ImageIcon SOL1 = new ImageIcon("SOL1.PNG");
       g.drawImage(SOL1.getImage(), 0, 0, getWidth(), getHeight(), null);
