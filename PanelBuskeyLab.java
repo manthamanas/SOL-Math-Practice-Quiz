@@ -8,6 +8,8 @@ public class PanelBuskeyLab extends JPanel
    
    public void paintComponent(Graphics g)
    {
+      g.setColor(Color.BLUE.brighter());
+      g.fillRect(0, 0, getWidth(), getHeight());
       ImageIcon SOL1 = new ImageIcon("SOL1.PNG");
       g.drawImage(SOL1.getImage(), 0, 0, getWidth(), getHeight(), null);
       ImageIcon SOL2 = new ImageIcon("SOL2.PNG");
@@ -29,7 +31,7 @@ public class PanelBuskeyLab extends JPanel
      sol[2] = SOL3;
      sol[3] = SOL4;
      sol[4] = SOL5;
-     sol[5] = SOL6;
+     sol[5] = SOL6;       //array for randomizing question order without having repeats?????????
      sol[6] = SOL7;
      sol[7] = SOL8;
      sol[8] = SOL9;
@@ -56,6 +58,7 @@ public class PanelBuskeyLab extends JPanel
      //B.addActionListener(new ButtonListener());
       //C.addActionListener(new ButtonListener());
       //D.addActionListener(new ButtonListener());
+      
       setLayout(new GridLayout(16,1,1,1));
       JLabel label1 = new JLabel("");
       JLabel label2 = new JLabel("");
