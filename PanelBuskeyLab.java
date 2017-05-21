@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
- 
+
 public class PanelBuskeyLab extends JPanel
 {
    private JLabel label; //a private field 
@@ -10,7 +10,7 @@ public class PanelBuskeyLab extends JPanel
    {
       g.setColor(Color.CYAN.brighter());
       g.fillRect(0, 0, getWidth(), getHeight());
-      //g.drawImage(SOL1.getImage(), 0, 0, getWidth(), getHeight(), null);
+   
       ImageIcon SOL1 = new ImageIcon("SOL1.PNG");
       ImageIcon SOL2 = new ImageIcon("SOL2.PNG");
       ImageIcon SOL3 = new ImageIcon("SOL3.PNG");
@@ -44,38 +44,41 @@ public class PanelBuskeyLab extends JPanel
    {
       setLayout(new FlowLayout());
       
-      QuestionBox sol1 = new QuestionBox("SOL1.PNG", "B");
-      QuestionBox sol2 = new QuestionBox("SOL2.PNG", "B");
-      QuestionBox sol3 = new QuestionBox("SOL3.PNG", "B");
-      QuestionBox sol4 = new QuestionBox("SOL4.PNG", "B");
-      QuestionBox sol5 = new QuestionBox("SOL5.PNG", "B");
-      QuestionBox sol6 = new QuestionBox("SOL6.PNG", "B");
-      QuestionBox sol7 = new QuestionBox("SOL7.PNG", "B");
-      QuestionBox sol8 = new QuestionBox("SOL8.PNG", "B");
-      QuestionBox sol9 = new QuestionBox("SOL9.PNG", "B");
-      QuestionBox sol10 = new QuestionBox("SOL10.PNG", "B");
-      QuestionBox sol11 = new QuestionBox("SOL11.PNG", "B");
-      QuestionBox sol12 = new QuestionBox("SOL12.PNG", "B");
-      
-      //ImageIcon SOL1 = new ImageIcon("SOL1.PNG");
-         //JLabel label1 = new JLabel(SOL1);
-      add(sol1.getLabelName());
+      QuestionBox[] solQuestions = new QuestionBox[12];
+      solQuestions[0] = new QuestionBox("SOL1.PNG", "A");
+  solQuestions[1] = new QuestionBox("SOL2.PNG", "B");
+    //   QuestionBox sol2 = new QuestionBox("SOL2.PNG", "B");
+//       QuestionBox sol3 = new QuestionBox("SOL3.PNG", "B");
+//       QuestionBox sol4 = new QuestionBox("SOL4.PNG", "A");
+//       QuestionBox sol5 = new QuestionBox("SOL5.PNG", "A");
+//       QuestionBox sol6 = new QuestionBox("SOL6.PNG", "D");
+//       QuestionBox sol7 = new QuestionBox("SOL7.PNG", "D");
+//       QuestionBox sol8 = new QuestionBox("SOL8.PNG", "B");
+//       QuestionBox sol9 = new QuestionBox("SOL9.PNG", "C");
+//       QuestionBox sol10 = new QuestionBox("SOL10.PNG", "C");
+//       QuestionBox sol11 = new QuestionBox("SOL11.PNG", "D");
+//       QuestionBox sol12 = new QuestionBox("SOL12.PNG", "C");
+    
+         
+      //before adding, find sol png to add
+      add(solQuestions[0].getLabelName());
    
       JButton A = new JButton("A");
       JButton B = new JButton("B");
       JButton C = new JButton("C");
       JButton D = new JButton("D");
-      //before adding, find sol png to add
-      Dimension d = new Dimension(100,100);
+            Dimension d = new Dimension(100,100);
       A.setPreferredSize(d);
       B.setPreferredSize(d);
       C.setPreferredSize(d);
       D.setPreferredSize(d);
+      
       A.addActionListener(
          new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {
-               boolean check = QuestionBox.answerCheck("A");
+               boolean check = solQuestions[0].answerCheck("A");
+               System.out.println(check);
                if(check)
                {
                   System.out.println("Correct Answer");
@@ -91,7 +94,7 @@ public class PanelBuskeyLab extends JPanel
          new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {
-               boolean check = QuestionBox.answerCheck("B");
+               boolean check = solQuestions[0].answerCheck("B");
                if(check)
                {
                   System.out.println("Correct Answer");
@@ -106,7 +109,7 @@ public class PanelBuskeyLab extends JPanel
          new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {
-               boolean check = QuestionBox.answerCheck("C");
+               boolean check = solQuestions[0].answerCheck("C");
                if(check)
                {
                   System.out.println("Correct Answer");
@@ -122,7 +125,7 @@ public class PanelBuskeyLab extends JPanel
          new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {
-               boolean check = QuestionBox.answerCheck("D");
+               boolean check = solQuestions[0].answerCheck("D");
                if(check)
                {
                   System.out.println("Correct Answer");

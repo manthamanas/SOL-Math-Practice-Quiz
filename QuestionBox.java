@@ -2,7 +2,8 @@ import javax.swing.*;
 
 public class QuestionBox
 {
-   static String imageName, answer;
+   String imageName, tempAns;
+   String answer;
    JLabel label1;
    ImageIcon SOL1;
    
@@ -19,9 +20,10 @@ public class QuestionBox
    {
       return label1;
    }
-   public static boolean answerCheck(String userAnswer)
+   public boolean answerCheck(String userAnswer)
    {
-      boolean correct = answer.equals(userAnswer);
+      System.out.println(userAnswer + " " + answer);
+      boolean correct = userAnswer.equals(answer);
       
       return correct;
    }   
