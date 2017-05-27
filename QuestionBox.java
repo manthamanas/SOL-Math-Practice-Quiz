@@ -22,9 +22,12 @@ public class QuestionBox
    }
    public boolean answerCheck(String userAnswer)
    {
-      System.out.println(userAnswer + " " + answer);
       boolean correct = userAnswer.equals(answer);
       
       return correct;
+   }
+   public String getCorrectAnswer()
+   {
+      return answer;
    }   
 }
