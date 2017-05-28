@@ -6,13 +6,31 @@ public class PanelBuskeyLab extends JPanel
 {
    int score = 0;
    int counter = 0;
+   int val;
+   int[] integer = new int[10];
    private JLabel label; //a private field 
    
    JButton A = new JButton("A");
    JButton B = new JButton("B");
    JButton C = new JButton("C");
    JButton D = new JButton("D");
-
+   JButton Quit = new JButton("Quit");
+   JButton Restart = new JButton("Restart");
+   JButton NextQuestion = new JButton("New Question");
+   
+   public boolean checkNum()
+   {
+      val = (int)(Math.random() * 12);
+      for(int i = 0; i < integer.length; i++)
+      {
+         if(val == integer[i])
+         {
+            return false;
+         }
+      }
+      integer[counter] = val;
+      return true;
+   }
    public void paintComponent(Graphics g)
    {
       g.setColor(Color.CYAN.brighter());
@@ -23,9 +41,8 @@ public class PanelBuskeyLab extends JPanel
    {
       setLayout(new FlowLayout());
       
-      int val = (int)(Math.random()*12);
-      System.out.println(val);
-      
+      while(!checkNum());
+            
       QuestionBox[] solQuestions = new QuestionBox[12];
       solQuestions[0] = new QuestionBox("SOL1.PNG", "A");
       solQuestions[1] = new QuestionBox("SOL2.PNG", "B");
@@ -54,8 +71,9 @@ public class PanelBuskeyLab extends JPanel
          new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {
+               System.out.println("A");
                boolean check = solQuestions[val].answerCheck("A");
-               if(check)
+               if(check == true)
                {
                   System.out.println("Correct Answer");
                   score++;
@@ -63,7 +81,7 @@ public class PanelBuskeyLab extends JPanel
                else
                {   
                   System.out.println("Wrong Answer");
-               } 
+               }
                remove(A);
                remove(B);
                remove(C);
@@ -80,38 +98,11 @@ public class PanelBuskeyLab extends JPanel
                scoreKeeper.setForeground(Color.red);
                add(correctAns);
                add(scoreKeeper);
+               add(NextQuestion);
                repaint();
                revalidate();
-               
-               if(counter >= 10)
-               {
-                  JButton Quit = new JButton("Quit");
-                  JButton Restart = new JButton("Restart");
-                  add(Quit);
-                  add(Restart);
-               }
-               else
-               {
-                  int nextVal = (int)(Math.random()*12);
-                  while(nextVal == val)
-                  {
-                     nextVal = (int)(Math.random()*12);
-                  }
-                  
-                  add(solQuestions[val].getLabelName());
-               
-                  JButton A = new JButton("A");
-                  JButton B = new JButton("B");
-                  JButton C = new JButton("C");
-                  JButton D = new JButton("D");
-                  Dimension d = new Dimension(100,100);
-                  A.setPreferredSize(d);
-                  B.setPreferredSize(d);
-                  C.setPreferredSize(d);
-                  D.setPreferredSize(d);
-               
-               }
-                 
+                    
+                                
             }
          });
    
@@ -119,9 +110,9 @@ public class PanelBuskeyLab extends JPanel
          new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {
-            System.out.println("B");
+               System.out.println("B");
                boolean check = solQuestions[val].answerCheck("B");
-               if(check)
+               if(check == true)
                {
                   System.out.println("Correct Answer");
                   score++;
@@ -146,47 +137,18 @@ public class PanelBuskeyLab extends JPanel
                scoreKeeper.setForeground(Color.red);
                add(correctAns);
                add(scoreKeeper);
+               add(NextQuestion);
                repaint();
-               revalidate();
-               
-               if(counter >= 10)
-               {
-                  JButton Quit = new JButton("Quit");
-                  JButton Restart = new JButton("Restart");
-                  add(Quit);
-                  add(Restart);
-               }
-               else
-               {
-                  int nextVal = (int)(Math.random()*12);
-                  while(nextVal == val)
-                  {
-                     nextVal = (int)(Math.random()*12);
-                  }
-                  
-                  add(solQuestions[val].getLabelName());
-               
-                  JButton A = new JButton("A");
-                  JButton B = new JButton("B");
-                  JButton C = new JButton("C");
-                  JButton D = new JButton("D");
-                  Dimension d = new Dimension(100,100);
-                  A.setPreferredSize(d);
-                  B.setPreferredSize(d);
-                  C.setPreferredSize(d);
-                  D.setPreferredSize(d);
-               
-               }
-                       
+               revalidate();        
             }
          });
       C.addActionListener(
          new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {
-            System.out.println("C");
+               System.out.println("C");
                boolean check = solQuestions[val].answerCheck("C");
-               if(check)
+               if(check == true)
                {
                   System.out.println("Correct Answer");
                   score++;
@@ -194,7 +156,7 @@ public class PanelBuskeyLab extends JPanel
                else
                {   
                   System.out.println("Wrong Answer");
-               }  
+               }
                remove(A);
                remove(B);
                remove(C);
@@ -211,38 +173,9 @@ public class PanelBuskeyLab extends JPanel
                scoreKeeper.setForeground(Color.red);
                add(correctAns);
                add(scoreKeeper);
+               add(NextQuestion);
                repaint();
                revalidate();
-               
-               if(counter >= 10)
-               {
-                  JButton Quit = new JButton("Quit");
-                  JButton Restart = new JButton("Restart");
-                  add(Quit);
-                  add(Restart);
-               }
-               else
-               {
-                  int nextVal = (int)(Math.random()*12);
-                  while(nextVal == val)
-                  {
-                     nextVal = (int)(Math.random()*12);
-                  }
-                  
-                  add(solQuestions[val].getLabelName());
-               
-                  JButton A = new JButton("A");
-                  JButton B = new JButton("B");
-                  JButton C = new JButton("C");
-                  JButton D = new JButton("D");
-                  Dimension d = new Dimension(100,100);
-                  A.setPreferredSize(d);
-                  B.setPreferredSize(d);
-                  C.setPreferredSize(d);
-                  D.setPreferredSize(d);
-               
-               }
-            
             }
          });
    
@@ -250,7 +183,7 @@ public class PanelBuskeyLab extends JPanel
          new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {
-            System.out.println("D");
+               System.out.println("D");
                boolean check = solQuestions[val].answerCheck("D");
                if(check == true)
                {
@@ -277,52 +210,78 @@ public class PanelBuskeyLab extends JPanel
                scoreKeeper.setForeground(Color.red);
                add(correctAns);
                add(scoreKeeper);
+               add(NextQuestion);
+               repaint();
+               revalidate();
+                
+            }
+         });
+      Quit.addActionListener(
+         new ActionListener(){
+            public void actionPerformed(ActionEvent e)
+            {
+               System.exit(0);
+            }
+         });
+      Restart.addActionListener(
+         new ActionListener(){
+            public void actionPerformed(ActionEvent e)
+            {
+               removeAll();
+               repaint();
+               score = 0;
+               counter = 0;
+               val = 0;
+               for(int k = 0; k < integer.length; k++)
+               {
+                  integer[k] = -1;
+               }
+               while(!checkNum());
+               add(solQuestions[val].getLabelName());
+               add(A);
+               add(B);
+               add(C);
+               add(D);
                repaint();
                revalidate();
                
+               
+            }
+         });
+      NextQuestion.addActionListener(
+         new ActionListener(){
+            public void actionPerformed(ActionEvent e)
+            {
                if(counter >= 10)
                {
-                  JButton Quit = new JButton("Quit");
-                  JButton Restart = new JButton("Restart");
+                  removeAll();
+                  repaint();
+                  JLabel scoreKeeper = new JLabel("Final Score: " + score);
+                  add(scoreKeeper);
                   add(Quit);
                   add(Restart);
+                  repaint();
+                  revalidate();
                }
                else
                {
-                  remove(solQuestions[val].getLabelName());
-                  remove(correctAns);
-                  remove(scoreKeeper);
+                  removeAll();
                   repaint();
                   revalidate();
-                  int nextVal = (int)(Math.random()*12);
-                  while(nextVal == val)
-                  {
-                     nextVal = (int)(Math.random()*12);
-                  }
-                  remove(solQuestions[nextVal].getLabelName());
-                  add(solQuestions[nextVal].getLabelName());
-                  //not in the same method so must create again --> not global
-                  // JButton A = new JButton("A");
-               //                   JButton B = new JButton("B");
-               //                   JButton C = new JButton("C");
-               //                   JButton D = new JButton("D");
-               //                   Dimension d = new Dimension(100,100);
-               //                   A.setPreferredSize(d);
-               //                   B.setPreferredSize(d);
-               //                   C.setPreferredSize(d);
-               //                   D.setPreferredSize(d);
+                  while(!checkNum());
+                  add(solQuestions[val].getLabelName());            
                   add(A);
                   add(B);
                   add(C);
                   add(D);
                   repaint();
+                  revalidate();
                
                }
-                                 
+            
             }
          });
    
-      
       add(A);
       add(B);
       add(C);
