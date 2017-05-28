@@ -16,7 +16,7 @@ public class PanelBuskeyLab extends JPanel
    JButton D = new JButton("D");
    JButton Quit = new JButton("Quit");
    JButton Restart = new JButton("Restart");
-   JButton NextQuestion = new JButton("New Question");
+   JButton NextQuestion = new JButton("Next Question");
    
    public boolean checkNum()
    {
