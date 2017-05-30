@@ -256,7 +256,7 @@ public class PanelBuskeyLab extends JPanel
                {
                   removeAll();
                   repaint();
-                  JLabel scoreKeeper = new JLabel("Final Score: " + score);
+                  JLabel scoreKeeper = new JLabel("Final Score: " + score + "/10");
                   add(scoreKeeper);
                   add(Quit);
                   add(Restart);
