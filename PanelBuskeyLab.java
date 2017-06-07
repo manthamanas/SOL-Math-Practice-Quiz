@@ -257,9 +257,25 @@ public class PanelBuskeyLab extends JPanel
                   removeAll();
                   repaint();
                   JLabel scoreKeeper = new JLabel("Final Score: " + score + "/10");
+                  scoreKeeper.setFont(new Font("", Font.BOLD, 40));
+                  scoreKeeper.setForeground(Color.red);
+                  JLabel lose = new JLabel("Wow....you're pretty bad at this");
+                  lose.setFont(new Font("Lucida Calligraphy", Font.BOLD, 50));
+                  lose.setForeground(Color.black);
+                  JLabel win = new JLabel("Eh...you can do better");
+                  win.setFont(new Font("Lucida Calligraphy", Font.BOLD, 60));
+                  win.setForeground(Color.black);
                   add(scoreKeeper);
                   add(Quit);
                   add(Restart);
+                  if(score < 10)
+                  {
+                     add(lose);
+                  }
+                  else
+                  {
+                     add(win);
+                  }
                   repaint();
                   revalidate();
                }
